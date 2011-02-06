@@ -116,7 +116,7 @@ function drawTrebleClef(ctx, position, options)
             [16.61, 34.77, 14.76, 32.22, 11.77, 31.78],
             [12.55, 34.97, 13.22, 38.59, 13.45, 42.10],
             [15.11, 41.47, 16.61, 39.73, 16.61, 37.35]
-		]
+		];
 		
 		// Overing default settings with options
 		jQuery.extend(settings, options);
@@ -127,6 +127,147 @@ function drawTrebleClef(ctx, position, options)
 			if (paths[i].length == 2) 
 			{
 				ctx.moveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
+			}
+			else if (paths[i].length == 6)
+			{
+				ctx.bezierCurveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y, 
+								  paths[i][2] * settings.scale + position.x, paths[i][3] * settings.scale + position.y, 
+								  paths[i][4] * settings.scale + position.x, paths[i][5] * settings.scale + position.y);
+			} 
+		}
+		ctx.fill();
+	}
+}
+
+function drawBassClef(ctx, position, options) 
+{
+	if (ctx != null && isPosition(position))
+	{
+		// Staff default settings
+		var settings = {
+			'scale': 1.0
+		}
+		var paths = [
+			[15.43, 22.20],
+			[15.43, 29.74,  7.89, 34.07,  0.63, 37.14],
+			[ 0.54, 37.23,  0.46, 37.26,  0.37, 37.26],
+			[ 0.17, 37.26,  0.00, 37.08,  0.00, 36.88],
+			[ 0.00, 36.80,  0.03, 36.71,  0.11, 36.63],
+			[ 5.91, 33.27, 11.93, 29.02, 11.93, 22.49],
+			[11.93, 19.04, 10.13, 15.75,  7.03, 15.75],
+			[ 4.90, 15.75,  3.33, 17.29,  2.61, 19.36],
+			[ 2.93, 19.22,  3.27, 19.13,  3.58, 19.13],
+			[ 5.19, 19.13,  6.45, 20.42,  6.45, 22.00],
+			[ 6.45, 23.66,  5.22, 25.04,  3.58, 25.04],
+			[ 1.89, 25.04,  0.37, 23.69,  0.37, 22.00],
+			[ 0.37, 18.21,  3.30, 15.00,  7.03, 15.00],
+			[11.96, 15.00, 15.43, 17.52, 15.43, 22.20],
+			[17.81, 17.49],
+			[18.64, 17.49, 19.27, 18.15, 19.27, 18.96],
+			[19.27, 19.76, 18.64, 20.42, 17.81, 20.42],
+			[17.01, 20.42, 16.35, 19.76, 16.35, 18.96],
+			[16.35, 18.15, 17.01, 17.49, 17.81, 17.49],
+			[17.81, 24.67],
+			[18.64, 24.67, 19.27, 25.33, 19.27, 26.13],
+			[19.27, 26.93, 18.64, 27.59, 17.81, 27.59],
+			[17.01, 27.59, 16.35, 26.93, 16.35, 26.13],
+			[16.35, 25.33, 17.01, 24.67, 17.81, 24.67],
+		];
+		
+		// Overing default settings with options
+		jQuery.extend(settings, options);
+		// Start drawing
+		ctx.beginPath();
+		for (var i = 0 ; i < paths.length ; i++) 
+		{
+			if (paths[i].length == 2) 
+			{
+				ctx.moveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
+			}
+			else if (paths[i].length == 6)
+			{
+				ctx.bezierCurveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y, 
+								  paths[i][2] * settings.scale + position.x, paths[i][3] * settings.scale + position.y, 
+								  paths[i][4] * settings.scale + position.x, paths[i][5] * settings.scale + position.y);
+			} 
+		}
+		ctx.fill();
+	}
+}
+
+function drawAltoClef(ctx, position, options) 
+{
+	if (ctx != null && isPosition(position))
+	{
+		// Staff default settings
+		var settings = {
+			'scale': 1.0
+		}
+		var paths = [
+			[ 0.30, 42.07],
+			[ 0.12, 42.07,  0.00, 41.95,  0.00, 41.77],
+			[ 0.00, 18.30, 'L'],
+			[ 0.00, 18.12,  0.12, 18.00,  0.30, 18.00],
+			[ 3.07, 18.00, 'L'],
+			[ 3.25, 18.00,  3.37, 18.12,  3.37, 18.30],
+			[ 3.37, 41.77, 'L'],
+			[ 3.37, 41.95,  3.25, 42.07,  3.07, 42.07],
+			[ 0.30, 42.07, 'L'],
+			[ 8.97, 31.75],
+			[ 9.69, 31.75, 10.29, 30.94, 11.04, 30.94],
+			[14.02, 30.94, 16.52, 33.17, 16.52, 36.06],
+			[16.52, 40.09, 14.41, 42.07, 10.35, 42.07],
+			[ 8.37, 42.07,  6.71, 40.60,  6.71, 38.67],
+			[ 6.71, 37.68,  7.52, 36.87,  8.52, 36.87],
+			[ 9.51, 36.87, 10.35, 37.68, 10.35, 38.67],
+			[10.35, 39.61,  9.27, 39.61,  9.27, 40.51],
+			[ 9.27, 41.02,  9.78, 41.35, 10.35, 41.35],
+			[13.09, 41.35, 13.60, 39.18, 13.60, 36.06],
+			[13.60, 33.47, 13.30, 31.66, 11.04, 31.66],
+			[ 9.39, 31.66,  8.34, 33.35,  8.34, 35.15],
+			[ 8.34, 35.39,  8.15, 35.51,  7.97, 35.51],
+			[ 7.79, 35.51,  7.58, 35.39,  7.58, 35.15],
+			[ 7.58, 33.38,  6.86, 31.69,  5.60, 30.49],
+			[ 5.60, 41.77, 'L'],
+			[ 5.60, 41.95,  5.45, 42.07,  5.30, 42.07],
+			[ 4.78, 42.07, 'L'],
+			[ 4.60, 42.07,  4.48, 41.95,  4.48, 41.77],
+			[ 4.48, 18.30, 'L'],
+			[ 4.48, 18.12,  4.60, 18.00,  4.78, 18.00],
+			[ 5.30, 18.00, 'L'],
+			[ 5.45, 18.00,  5.60, 18.12,  5.60, 18.30],
+			[ 5.60, 29.59, 'L'],
+			[ 6.86, 28.38,  7.58, 26.70,  7.58, 24.92],
+			[ 7.58, 24.68,  7.79, 24.56,  7.97, 24.56],
+			[ 8.15, 24.56,  8.34, 24.68,  8.34, 24.92],
+			[ 8.34, 26.73,  9.39, 28.41, 11.04, 28.41],
+			[13.30, 28.41, 13.60, 26.61, 13.60, 24.02],
+			[13.60, 20.89, 13.09, 18.75, 10.35, 18.75],
+			[ 9.78, 18.75,  9.27, 19.05,  9.27, 19.56],
+			[ 9.27, 20.47, 10.35, 20.47, 10.35, 21.40],
+			[10.35, 22.39,  9.51, 23.21,  8.52, 23.21],
+			[ 7.52, 23.21,  6.71, 22.39,  6.71, 21.40],
+			[ 6.71, 19.47,  8.37, 18.00, 10.35, 18.00],
+			[14.41, 18.00, 16.52, 19.99, 16.52, 24.02],
+			[16.52, 26.91, 14.02, 29.13, 11.04, 29.13],
+			[10.29, 29.13,  9.69, 28.32,  8.97, 28.32],
+			[ 8.12, 28.32,  7.97, 29.16,  7.97, 30.04],
+			[ 7.97, 30.79,  8.06, 31.75,  8.97, 31.75]
+		];
+		
+		// Overing default settings with options
+		jQuery.extend(settings, options);
+		// Start drawing
+		ctx.beginPath();
+		for (var i = 0 ; i < paths.length ; i++) 
+		{
+			if (paths[i].length == 2) 
+			{
+				ctx.moveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
+			}
+			else if (paths[i].length == 2) 
+			{
+				ctx.lineTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
 			}
 			else if (paths[i].length == 6)
 			{

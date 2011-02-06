@@ -22,7 +22,7 @@
     </header>
     
     <div>
-      <canvas id="score" width="400" height="100"></canvas>
+      <canvas id="score" width="400" height="150"></canvas>
     </div>
   
   </div>
@@ -33,6 +33,12 @@
     			var ctx = buildContext(this);
        			drawStaff(ctx, {'x': 0, 'y': 0}, {'width': 400});
        			drawTrebleClef(ctx, {'x': 10, 'y': 0});
+       			
+       			drawStaff(ctx, {'x': 0, 'y': 50}, {'width': 400});
+       			drawBassClef(ctx, {'x': 10, 'y': 50})
+       			
+       			drawStaff(ctx, {'x': 0, 'y': 100}, {'width': 400});
+       			drawAltoClef(ctx, {'x': 10, 'y': 100})
      		});
   		}
   	);
