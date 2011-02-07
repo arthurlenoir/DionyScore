@@ -27,7 +27,7 @@ def getPathFromFile(file):
     flag = False
     paths = []
     f = open(file, 'rb')
-    commandMatcher = re.compile('(\\d+\\.\\d+ )+[cCmLl]')
+    commandMatcher = re.compile('(-?\\d+\\.\\d+ )+[cCmLl]')
     endLinesRemoved = re.compile('\r?\n')
     i = 0
     for line in f:
@@ -36,6 +36,7 @@ def getPathFromFile(file):
         if line.startswith('*u'):
             flag = True
         if line == '*U':
+            flag = False
             break
         if flag:
             if commandMatcher.match(line):
@@ -49,12 +50,12 @@ def getPathFromFile(file):
                     paths.append([float(command[0]), float(command[1]), float(command[2]), float(command[3]), float(command[4]), float(command[5])])
     return paths
 
-paths = getPathFromFile('D:/Projet Dionysos/javascript/DionyScore/clefalto.ai')
+paths = getPathFromFile('D:/Projet Dionysos/javascript/DionyScore/clefpercussions.ai')
 
 minX, maxX, minY, maxY = getExtrema(paths)
-verticalPadding = 18
+verticalPadding = 22
 horizontalPadding = 0
-scale = 1.51
+scale = 1.48 * 1.02
 
 newvalue = None
 for path in paths:
