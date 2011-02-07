@@ -50,10 +50,10 @@ def getPathFromFile(file):
                     paths.append([float(command[0]), float(command[1]), float(command[2]), float(command[3]), float(command[4]), float(command[5])])
     return paths
 
-paths = getPathFromFile('D:/Projet Dionysos/javascript/DionyScore/clefpercussions.ai')
+paths = getPathFromFile('D:/Projet Dionysos/javascript/DionyScore/cutCommonTime.ai')
 
 minX, maxX, minY, maxY = getExtrema(paths)
-verticalPadding = 22
+verticalPadding = 19
 horizontalPadding = 0
 scale = 1.48 * 1.02
 

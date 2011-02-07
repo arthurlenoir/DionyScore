@@ -26,6 +26,30 @@ function isPosition(position)
 	return false;
 }
 
+function drawPaths(paths, ctx, position, settings) 
+{
+	ctx.beginPath();
+	ctx.moveTo(position.x, position.y);
+	for (var i = 0 ; i < paths.length ; i++) 
+	{
+		if (paths[i].length == 2) 
+		{
+			ctx.moveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
+		}
+		else if (paths[i].length == 3) 
+		{
+			ctx.lineTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
+		}
+		else if (paths[i].length == 6)
+		{
+			ctx.bezierCurveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y, 
+							  paths[i][2] * settings.scale + position.x, paths[i][3] * settings.scale + position.y, 
+							  paths[i][4] * settings.scale + position.x, paths[i][5] * settings.scale + position.y);
+		} 
+	}
+	ctx.fill();
+}
+
 function drawStaff(ctx, position, options)
 {
 	if (ctx != null && isPosition(position))
@@ -67,7 +91,7 @@ function drawTrebleClef(ctx, position, options)
 {
 	if (ctx != null && isPosition(position))
 	{
-		// Staff default settings
+		// Treble clef default settings
 		var settings = {
 			'scale': 1.0
 		}
@@ -121,21 +145,7 @@ function drawTrebleClef(ctx, position, options)
 		// Overing default settings with options
 		jQuery.extend(settings, options);
 		// Start drawing
-		ctx.beginPath();
-		for (var i = 0 ; i < paths.length ; i++) 
-		{
-			if (paths[i].length == 2) 
-			{
-				ctx.moveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
-			}
-			else if (paths[i].length == 6)
-			{
-				ctx.bezierCurveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y, 
-								  paths[i][2] * settings.scale + position.x, paths[i][3] * settings.scale + position.y, 
-								  paths[i][4] * settings.scale + position.x, paths[i][5] * settings.scale + position.y);
-			} 
-		}
-		ctx.fill();
+		drawPaths(paths, ctx, position, settings);
 	}
 }
 
@@ -143,7 +153,7 @@ function drawBassClef(ctx, position, options)
 {
 	if (ctx != null && isPosition(position))
 	{
-		// Staff default settings
+		// Bass clef default settings
 		var settings = {
 			'scale': 1.0
 		}
@@ -177,21 +187,7 @@ function drawBassClef(ctx, position, options)
 		// Overing default settings with options
 		jQuery.extend(settings, options);
 		// Start drawing
-		ctx.beginPath();
-		for (var i = 0 ; i < paths.length ; i++) 
-		{
-			if (paths[i].length == 2) 
-			{
-				ctx.moveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
-			}
-			else if (paths[i].length == 6)
-			{
-				ctx.bezierCurveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y, 
-								  paths[i][2] * settings.scale + position.x, paths[i][3] * settings.scale + position.y, 
-								  paths[i][4] * settings.scale + position.x, paths[i][5] * settings.scale + position.y);
-			} 
-		}
-		ctx.fill();
+		drawPaths(paths, ctx, position, settings);
 	}
 }
 
@@ -199,7 +195,7 @@ function drawAltoClef(ctx, position, options)
 {
 	if (ctx != null && isPosition(position))
 	{
-		// Staff default settings
+		// Alto clef default settings
 		var settings = {
 			'scale': 1.0
 		}
@@ -258,25 +254,7 @@ function drawAltoClef(ctx, position, options)
 		// Overing default settings with options
 		jQuery.extend(settings, options);
 		// Start drawing
-		ctx.beginPath();
-		for (var i = 0 ; i < paths.length ; i++) 
-		{
-			if (paths[i].length == 2) 
-			{
-				ctx.moveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
-			}
-			else if (paths[i].length == 3) 
-			{
-				ctx.lineTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
-			}
-			else if (paths[i].length == 6)
-			{
-				ctx.bezierCurveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y, 
-								  paths[i][2] * settings.scale + position.x, paths[i][3] * settings.scale + position.y, 
-								  paths[i][4] * settings.scale + position.x, paths[i][5] * settings.scale + position.y);
-			} 
-		}
-		ctx.fill();
+		drawPaths(paths, ctx, position, settings);
 	}
 }
 
@@ -284,7 +262,7 @@ function drawTabClef(ctx, position, options)
 {
 	if (ctx != null && isPosition(position))
 	{
-		// Staff default settings
+		// Tablature Clef default settings
 		var settings = {
 			'scale': 1.0
 		}
@@ -361,25 +339,7 @@ function drawTabClef(ctx, position, options)
 		// Overing default settings with options
 		jQuery.extend(settings, options);
 		// Start drawing
-		ctx.beginPath();
-		for (var i = 0 ; i < paths.length ; i++) 
-		{
-			if (paths[i].length == 2) 
-			{
-				ctx.moveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
-			}
-			else if (paths[i].length == 3) 
-			{
-				ctx.lineTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
-			}
-			else if (paths[i].length == 6)
-			{
-				ctx.bezierCurveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y, 
-								  paths[i][2] * settings.scale + position.x, paths[i][3] * settings.scale + position.y, 
-								  paths[i][4] * settings.scale + position.x, paths[i][5] * settings.scale + position.y);
-			} 
-		}
-		ctx.fill();
+		drawPaths(paths, ctx, position, settings);
 	}
 }
 
@@ -387,7 +347,7 @@ function drawPercussionsClef(ctx, position, options)
 {
 	if (ctx != null && isPosition(position))
 	{
-		// Staff default settings
+		// Percussions Clef default settings
 		var settings = {
 			'scale': 1.0
 		}
@@ -415,25 +375,92 @@ function drawPercussionsClef(ctx, position, options)
 		// Overing default settings with options
 		jQuery.extend(settings, options);
 		// Start drawing
-		ctx.beginPath();
-		ctx.moveTo(position.x, position.y);
-		for (var i = 0 ; i < paths.length ; i++) 
-		{
-			if (paths[i].length == 2) 
-			{
-				ctx.moveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
-			}
-			else if (paths[i].length == 3) 
-			{
-				ctx.lineTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
-			}
-			else if (paths[i].length == 6)
-			{
-				ctx.bezierCurveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y, 
-								  paths[i][2] * settings.scale + position.x, paths[i][3] * settings.scale + position.y, 
-								  paths[i][4] * settings.scale + position.x, paths[i][5] * settings.scale + position.y);
-			} 
+		drawPaths(paths, ctx, position, settings);
+	}
+}
+
+function drawCommonTime(ctx, position, options)
+{
+	if (ctx != null && isPosition(position))
+	{
+		// Common time default settings
+		var settings = {
+			'scale': 1.0
 		}
-		ctx.fill();
+		var paths = [
+			[ 8.55, 26.81],
+			[10.86, 24.50, 10.98, 24.53, 11.13, 24.53],
+			[10.29, 23.44,  8.97, 22.75,  7.52, 22.75],
+			[ 4.33, 22.75,  4.12, 24.95,  4.12, 28.35],
+			[ 4.12, 29.88, 'L'],
+			[ 4.12, 31.42, 'L'],
+			[ 4.12, 34.81,  4.33, 37.01,  7.52, 37.04],
+			[ 9.93, 37.04, 11.70, 34.93, 12.28, 32.50],
+			[12.33, 32.29, 12.48, 32.20, 12.63, 32.20],
+			[12.82, 32.20, 13.03, 32.35, 13.03, 32.56],
+			[13.03, 33.16, 11.55, 37.79,  7.52, 37.79],
+			[ 3.94, 37.79,  0.00, 35.87,  0.00, 29.88],
+			[ 0.00, 25.37,  2.44, 22.00,  7.52, 22.00],
+			[11.04, 22.00, 12.82, 25.22, 12.82, 26.90],
+			[12.82, 28.08, 11.88, 29.07, 10.80, 29.07],
+			[10.02, 29.07,  8.55, 28.47,  8.55, 26.81]
+		];
+		
+		// Overing default settings with options
+		jQuery.extend(settings, options);
+		// Start drawing
+		drawPaths(paths, ctx, position, settings);
+	}
+}
+
+function drawCutCommonTime(ctx, position, options)
+{
+	if (ctx != null && isPosition(position))
+	{
+		// Common time default settings
+		var settings = {
+			'scale': 1.0
+		}
+		var paths = [
+			[ 8.54, 26.46],
+			[ 8.54, 25.32,  9.36, 24.14, 10.71, 24.14],
+			[10.86, 24.14, 10.98, 24.17, 11.13, 24.17],
+			[10.29, 23.09,  8.96, 22.40,  7.52, 22.40],
+			[ 7.13, 22.40, 'L'],
+			[ 7.13, 36.66, 'L'],
+			[ 7.28, 36.66,  7.40, 36.69,  7.52, 36.69],
+			[ 9.93, 36.69, 11.70, 34.58, 12.27, 32.15],
+			[12.33, 31.94, 12.48, 31.84, 12.63, 31.84],
+			[12.81, 31.84, 13.03, 32.00, 13.03, 32.21],
+			[13.03, 32.81, 11.55, 37.44,  7.52, 37.44],
+			[ 7.40, 37.44,  7.28, 37.41,  7.13, 37.41],
+			[ 7.13, 39.76, 'L'],
+			[ 7.13, 39.94,  7.01, 40.06,  6.83, 40.06],
+			[ 6.32, 40.06, 'L'],
+			[ 6.14, 40.06,  6.02, 39.94,  6.02, 39.76],
+			[ 6.02, 37.32, 'L'],
+			[ 1.68, 36.63,  0.00, 33.29,  0.00, 29.53],
+			[ 0.00, 25.77,  1.65, 22.43,  6.02, 21.74],
+			[ 6.02, 19.30, 'L'],
+			[ 6.02, 19.12,  6.14, 19.00,  6.32, 19.00],
+			[ 6.83, 19.00, 'L'],
+			[ 7.01, 19.00,  7.13, 19.12,  7.13, 19.30],
+			[ 7.13, 21.65, 'L'],
+			[ 7.52, 21.65, 'L'],
+			[11.04, 21.65, 12.81, 24.87, 12.81, 26.55],
+			[12.81, 27.72, 11.88, 28.72, 10.80, 28.72],
+			[10.02, 28.72,  8.54, 28.12,  8.54, 26.46],
+			[ 6.02, 22.61],
+			[ 4.27, 23.27,  4.12, 25.26,  4.12, 27.99],
+			[ 4.12, 29.53, 'L'],
+			[ 4.12, 31.06, 'L'],
+			[ 4.12, 33.80,  4.27, 35.79,  6.02, 36.45],
+			[ 6.02, 22.61, 'L']
+		];
+		
+		// Overing default settings with options
+		jQuery.extend(settings, options);
+		// Start drawing
+		drawPaths(paths, ctx, position, settings);
 	}
 }
