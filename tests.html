@@ -12,7 +12,10 @@
   <meta name="author" content="Arthur Lenoir" />
   
   <script type="text/javascript" src="jquery.js"></script>
-  <script type="text/javascript" src="drawing.js"></script>
+  <script type="text/javascript" src="drawing/base.js"></script>
+  <script type="text/javascript" src="drawing/clef.js"></script>
+  <script type="text/javascript" src="drawing/timeSignature.js"></script>
+  <script type="text/javascript" src="drawing/accidental.js"></script>
 </head>
 
 <body>
@@ -34,15 +37,18 @@
        			drawStaff(ctx, {'x': 0, 'y': 0}, {'width': 400});
        			drawTrebleClef(ctx, {'x': 10, 'y': 0});
        			drawCommonTime(ctx, {'x': 40, 'y': 0});
+       			drawSharp(ctx, {'x': 60, 'y': 0});
        			
        			drawStaff(ctx, {'x': 0, 'y': 50}, {'width': 400});
        			drawBassClef(ctx, {'x': 10, 'y': 50});
        			drawCutCommonTime(ctx, {'x': 40, 'y': 50});
+       			drawFlat(ctx, {'x': 60, 'y': 50});
        			
        			drawStaff(ctx, {'x': 0, 'y': 100}, {'width': 400});
        			drawAltoClef(ctx, {'x': 10, 'y': 100});
        			drawTwo(ctx, {'x': 40, 'y': 100});
        			drawFour(ctx, {'x': 40, 'y': 114.5});
+       			drawNatural(ctx, {'x': 60, 'y': 100});
        			
        			drawStaff(ctx, {'x': 0, 'y': 150}, {'width': 400});
        			drawTabClef(ctx, {'x': 10, 'y': 150});
