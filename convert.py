@@ -57,12 +57,12 @@ def getPathFromFile(file):
                     paths.append([float(command[0]), float(command[1]), float(command[2]), float(command[3]), float(command[4]), float(command[5])])
     return paths
 
-paths = getPathFromFile('D:/Projet Dionysos/Traces/sharp.ai')
+paths = getPathFromFile('D:/Projet Dionysos/Traces/clefpercussions.ai')
 
 minX, maxX, minY, maxY = getExtrema(paths)
-verticalPadding = 1.7 + 20.45 - 21.5
-horizontalPadding = 0
-scale = 1.48 * 1.02 * 0.92 * 1.03 * 1.02
+verticalPadding = 1.7 + 20.75
+horizontalPadding = 2.5
+scale = 1.48 * 1.02 * 0.92 * 1.03 * 1.02 
 
 newvalue = None
 for path in paths:

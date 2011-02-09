@@ -76,8 +76,6 @@ function drawStaff(ctx, position, options)
 		
 		// Start drawing
 		ctx.beginPath();
-		//ctx.moveTo(position.x + ctx.lineWidth, Math.round(settings.paddingTop + position.y));
-		//ctx.lineTo(position.x + ctx.lineWidth, Math.round(settings.paddingTop + position.y + 4 * space));
 		for (var i = 0 ; i < 5 ; i++)
 		{
 			ctx.moveTo(position.x + ctx.lineWidth / 2, 0.5 + Math.round(settings.paddingTop + position.y + i * space));
