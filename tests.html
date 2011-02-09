@@ -16,6 +16,7 @@
   <script type="text/javascript" src="drawing/clef.js"></script>
   <script type="text/javascript" src="drawing/timeSignature.js"></script>
   <script type="text/javascript" src="drawing/accidental.js"></script>
+  <script type="text/javascript" src="drawing/note.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
     </header>
     
     <div>
-      <canvas id="score" width="400" height="400"></canvas>
+      <canvas id="score" width="1600" height="1000"></canvas>
     </div>
   
   </div>
@@ -36,29 +37,43 @@
     			var ctx = buildContext(this);
        			drawStaff(ctx, {'x': 0, 'y': 0}, {'width': 400});
        			drawTrebleClef(ctx, {'x': 10, 'y': 0});
-       			drawCommonTime(ctx, {'x': 40, 'y': 0});
-       			drawSharp(ctx, {'x': 60, 'y': 0});
+       			drawSharp(ctx, {'x': 35, 'y': 3.625});
+       			drawSharp(ctx, {'x': 44, 'y': 14.55});
+       			drawSharp(ctx, {'x': 53, 'y': 0});
+       			drawCommonTime(ctx, {'x': 70, 'y': 0});
+       			drawWholeNote(ctx, {'x': 100, 'y': 22.25});
        			
        			drawStaff(ctx, {'x': 0, 'y': 50}, {'width': 400});
        			drawBassClef(ctx, {'x': 10, 'y': 50});
-       			drawCutCommonTime(ctx, {'x': 40, 'y': 50});
-       			drawFlat(ctx, {'x': 60, 'y': 50});
+       			drawFlat(ctx, {'x': 35, 'y': 75});
+       			drawFlat(ctx, {'x': 44, 'y': 65});
+       			drawCutCommonTime(ctx, {'x': 61, 'y': 50});
        			
        			drawStaff(ctx, {'x': 0, 'y': 100}, {'width': 400});
        			drawAltoClef(ctx, {'x': 10, 'y': 100});
-       			drawTwo(ctx, {'x': 40, 'y': 100});
-       			drawFour(ctx, {'x': 40, 'y': 114.5});
-       			drawNatural(ctx, {'x': 60, 'y': 100});
+       			drawTwo(ctx, {'x': 35, 'y': 100});
+       			drawFour(ctx, {'x': 35, 'y': 114.5});
+       			drawNatural(ctx, {'x': 50, 'y': 100});
        			
        			drawStaff(ctx, {'x': 0, 'y': 150}, {'width': 400});
        			drawTabClef(ctx, {'x': 10, 'y': 150});
-       			drawThree(ctx, {'x': 40, 'y': 150});
-       			drawFour(ctx, {'x': 40, 'y': 164.5});
+       			drawThree(ctx, {'x': 35, 'y': 150});
+       			drawFour(ctx, {'x': 35, 'y': 164.5});
        			
        			drawStaff(ctx, {'x': 0, 'y': 200}, {'width': 400});
-       			drawPercussionsClef(ctx, {'x': 10, 'y': 200});
-       			drawSix(ctx, {'x': 40, 'y': 200});
-       			drawEight(ctx, {'x': 40, 'y': 214.5});
+       			drawPercussionsClef(ctx, {'x': 5, 'y': 200});
+       			drawSix(ctx, {'x': 35, 'y': 200});
+       			drawEight(ctx, {'x': 35, 'y': 214.5});
+       			drawWholeNote(ctx, {'x': 60, 'y': 225});
+       			
+       			var scale = 10.0;
+       			drawStaff(ctx, {'x': 0, 'y': 250}, {'width': 400, 'scale': scale});
+       			drawTrebleClef(ctx, {'x': 10 * scale, 'y': 250}, {'scale': scale});
+       			drawSharp(ctx, {'x': 35 * scale, 'y': 250 + 3.625 * scale}, {'scale': scale});
+       			drawSharp(ctx, {'x': 44 * scale, 'y': 250 + 14.55 * scale}, {'scale': scale});
+       			drawSharp(ctx, {'x': 53 * scale, 'y': 250 + 0}, {'scale': scale});
+       			drawCommonTime(ctx, {'x': 70 * scale, 'y': 250}, {'scale': scale});
+       			drawWholeNote(ctx, {'x': 100 * scale, 'y': 250 + 22.25 * scale}, {'scale': scale});
      		});
   		}
   	);

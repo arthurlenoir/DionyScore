@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import re
 
 def getExtrema(paths):
@@ -27,17 +28,23 @@ def getPathFromFile(file):
     flag = False
     paths = []
     f = open(file, 'rb')
-    commandMatcher = re.compile('(-?\\d+\\.\\d+ )+[cCmLl]')
+    commandMatcher = re.compile('(-?\\d+\\.?\\d* )+[cCmLl]')
     endLinesRemoved = re.compile('\r?\n')
     i = 0
+    endTag = '*U'
     for line in f:
         i += 1
         line = endLinesRemoved.sub('', line)
         if line.startswith('*u'):
             flag = True
-        if line == '*U':
+            endTag = '*U'
+        if line.startswith('%AI5_BeginLayer'):
+            flag = True
+            endTag = 'F'
+        if line == endTag:
             flag = False
-            break
+            if len(paths) > 0:
+                break
         if flag:
             if commandMatcher.match(line):
                 command = line.split(' ')
@@ -50,12 +57,12 @@ def getPathFromFile(file):
                     paths.append([float(command[0]), float(command[1]), float(command[2]), float(command[3]), float(command[4]), float(command[5])])
     return paths
 
-paths = getPathFromFile('D:/Projet Dionysos/javascript/DionyScore/natural.ai')
+paths = getPathFromFile('D:/Projet Dionysos/Traces/sharp.ai')
 
 minX, maxX, minY, maxY = getExtrema(paths)
-verticalPadding = 0.5
+verticalPadding = 1.7 + 20.45 - 21.5
 horizontalPadding = 0
-scale = 1.48 * 1.02
+scale = 1.48 * 1.02 * 0.92 * 1.03 * 1.02
 
 newvalue = None
 for path in paths:

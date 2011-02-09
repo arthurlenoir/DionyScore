@@ -59,13 +59,15 @@ function drawStaff(ctx, position, options)
 			'width': 200,
 			'height': 50,
 			'paddingTop': 15,
-			'scale': 1.0
+			'scale': 1.0,
+			'lineCap': 'round'
 		}
 		// Overing default settings with options
 		jQuery.extend(settings, options);
 		
 		// Scalling settings
 		ctx.lineWidth *= settings.scale;
+		ctx.lineCap = settings.lineCap;
 		settings.width *= settings.scale;
 		settings.height *= settings.scale;
 		settings.paddingTop *= settings.scale;
@@ -74,11 +76,11 @@ function drawStaff(ctx, position, options)
 		
 		// Start drawing
 		ctx.beginPath();
-		ctx.moveTo(position.x + ctx.lineWidth, Math.round(settings.paddingTop + position.y));
-		ctx.lineTo(position.x + ctx.lineWidth, Math.round(settings.paddingTop + position.y + 4 * space));
+		//ctx.moveTo(position.x + ctx.lineWidth, Math.round(settings.paddingTop + position.y));
+		//ctx.lineTo(position.x + ctx.lineWidth, Math.round(settings.paddingTop + position.y + 4 * space));
 		for (var i = 0 ; i < 5 ; i++)
 		{
-			ctx.moveTo(position.x, 0.5 + Math.round(settings.paddingTop + position.y + i * space));
+			ctx.moveTo(position.x + ctx.lineWidth / 2, 0.5 + Math.round(settings.paddingTop + position.y + i * space));
 			ctx.lineTo(position.x + settings.width, 0.5 + Math.round(settings.paddingTop + position.y + i * space));
 		}
 		ctx.stroke();
