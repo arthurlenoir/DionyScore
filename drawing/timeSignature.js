@@ -11,7 +11,7 @@ function drawCommonTime(ctx, position, options)
 		// Common time default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 3.98, 29.77],
 			[ 3.98, 31.25, 'L'],
@@ -46,7 +46,7 @@ function drawCutCommonTime(ctx, position, options)
 		// Cut common time default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 8.26, 26.80],
 			[ 8.26, 25.70,  9.04, 24.56, 10.35, 24.56],
@@ -98,7 +98,7 @@ function drawZero(ctx, position, options)
 		// Zero default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 5.23, 15.08],
 			[ 6.28, 14.94,  7.25, 15.21,  8.14, 15.89],
@@ -147,7 +147,7 @@ function drawOne(ctx, position, options)
 		// One default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 3.57, 14.98],
 			[ 3.66, 14.94,  3.78, 14.95,  3.93, 15.00],
@@ -202,7 +202,7 @@ function drawTwo(ctx, position, options)
 		// One default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 3.05, 25.71],
 			[ 4.14, 25.55,  5.16, 25.74,  6.11, 26.26],
@@ -273,7 +273,7 @@ function drawThree(ctx, position, options)
 		// Three default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 4.04, 14.96],
 			[ 4.29, 14.94,  4.65, 14.95,  5.11, 14.99],
@@ -345,7 +345,7 @@ function drawFour(ctx, position, options)
 		// Four default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 5.80, 25.88],
 			[ 1.67, 25.88, 'L'],
@@ -424,7 +424,7 @@ function drawFive(ctx, position, options)
 		// Five default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 1.87, 21.40],
 			[ 2.92, 20.39,  4.37, 20.00,  6.23, 20.23],
@@ -491,7 +491,7 @@ function drawSix(ctx, position, options)
 		// Six default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 3.54, 21.83],
 			[ 4.39, 21.46,  5.37, 21.36,  6.48, 21.52],
@@ -559,7 +559,7 @@ function drawSeven(ctx, position, options)
 		// Seven default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 7.09, 18.83],
 			[ 5.97, 19.47,  4.95, 19.49,  4.04, 18.89],
@@ -635,7 +635,7 @@ function drawEight(ctx, position, options)
 		// Eight default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 2.34, 22.07],
 			[ 2.03, 21.91,  1.73, 21.65,  1.44, 21.28],
@@ -701,7 +701,7 @@ function drawNine(ctx, position, options)
 		// Nine default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 6.74, 22.69],
 			[ 5.89, 23.05,  4.91, 23.16,  3.80, 22.99],

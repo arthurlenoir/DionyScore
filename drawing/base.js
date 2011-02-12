@@ -85,7 +85,7 @@ function drawStaff(ctx, position, options)
 			'paddingTop': 15,
 			'scale': 1.0,
 			'lineCap': 'round'
-		}
+		};
 		// Overing default settings with options
 		jQuery.extend(settings, options);
 		

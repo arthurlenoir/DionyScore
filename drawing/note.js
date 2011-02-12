@@ -5,7 +5,7 @@ function drawWholeNote(ctx, position, options)
         // Whole note default settings
         var settings = {
             'scale': 1.0
-        }
+        };
         var paths = [
             [13.70,  3.82],
 			[13.70,  6.06, 10.43,  7.64,  6.86,  7.64],
@@ -33,7 +33,7 @@ function drawHalfNoteHead(ctx, position, options)
 		// Half note base default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[10.09,  2.22],
 			[10.09,  3.30,  9.42,  5.63,  7.91,  6.64],
@@ -65,7 +65,7 @@ function drawNoteHead(ctx, position, options)
 		// Note base default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 9.57,  2.78],
 			[ 9.57,  5.39,  6.28,  8.16,  3.17,  8.16],
@@ -89,7 +89,7 @@ function drawLeftStem(ctx, position, options)
 		var settings = {
 			'scale': 1.0,
 			'lineJoin': 'round'
-		}
+		};
 		var paths = [
 			[ 0.50, 29.07],
 			[ 0.86, 29.07, 'L'],
@@ -114,13 +114,13 @@ function drawRightStem(ctx, position, options)
 		var settings = {
 			'scale': 1.0,
 			'lineJoin': 'round'
-		}
+		};
 		var paths = [
-			[ 8.75, 31.77],
-			[ 9.11, 31.77, 'L'],
-			[ 9.11,  8.28, 'L'],
-			[ 8.75,  8.28, 'L'],
-			[ 8.75, 31.77, 'L']
+			[ 8.75,   2.41],
+			[ 9.11,   2.41, 'L'],
+			[ 9.11, -21.08, 'L'],
+			[ 8.75, -21.08, 'L'],
+			[ 8.75,   2.41, 'L']
 		];
         
         // Overing default settings with options
@@ -128,5 +128,83 @@ function drawRightStem(ctx, position, options)
         ctx.lineJoin = settings.lineJoin;
         // Start drawing
         strokePaths(paths, ctx, position, settings);
+	}
+}
+
+function drawNoteNeck(ctx, position, options)
+{
+	if (ctx != null & isPosition(position))
+	{
+		// Note neck default settings
+		var settings = {
+			'scale': 1.0,
+			'lineJoin': 'round'
+		};
+		var paths = [
+			[ -1.75,  4.08],
+			[ 11.15,  4.08, 'L'],
+			[ -1.75,  4.08, 'L']
+		];
+        
+        // Overing default settings with options
+        jQuery.extend(settings, options);
+        ctx.lineJoin = settings.lineJoin;
+        // Start drawing
+        strokePaths(paths, ctx, position, settings);
+	}
+}
+
+function drawSingleFlagDown(ctx, position, options)
+{
+	if (ctx != null & isPosition(position))
+	{
+		// Note neck default settings
+		var settings = {
+			'scale': 1.0
+		};
+		var paths = [
+			[ 9.15,  -21.23],
+			[ 9.62,  -21.23, 'L'],
+			[ 9.62,  -15.47, 15.69,  -11.49, 15.69,  -5.73],
+			[15.69,  -3.67, 15.23,  -1.63, 14.47,  0.29],
+			[14.35,  0.52, 14.12,  0.64, 13.92,  0.64],
+			[13.54,  0.64, 13.16,  0.32, 13.25,  -0.15],
+			[14.01,  -1.92, 14.47,  -3.81, 14.47,  -5.73],
+			[14.47,  -8.76, 11.71,  -11.78,  9.62,  -13.96],
+			[ 9.15,  -13.96, 'L'],
+			[ 9.15,  -21.23, 'L']
+		];
+        
+        // Overing default settings with options
+        jQuery.extend(settings, options);
+        // Start drawing
+        drawPaths(paths, ctx, position, settings);
+	}
+}
+
+function drawSingleFlagUp(ctx, position, options)
+{
+	if (ctx != null & isPosition(position))
+	{
+		// Note neck default settings
+		var settings = {
+			'scale': 1.0
+		};
+		var paths = [
+			[ 9.19, 14.41],
+			[ 9.19, 20.37,  1.37, 23.36,  1.37, 29.32],
+			[ 0.90, 29.32, 'L'],
+			[ 0.90, 22.05, 'L'],
+			[ 1.37, 22.05, 'L'],
+			[ 4.21, 20.31,  7.96, 17.66,  7.96, 14.41],
+			[ 7.96, 12.52,  7.35, 10.68,  6.39,  9.05],
+			[ 6.31,  8.59,  6.69,  8.27,  7.06,  8.27],
+			[ 7.99,  8.27,  9.19, 11.99,  9.19, 14.41]
+		];
+        
+        // Overing default settings with options
+        jQuery.extend(settings, options);
+        // Start drawing
+        drawPaths(paths, ctx, position, settings);
 	}
 }

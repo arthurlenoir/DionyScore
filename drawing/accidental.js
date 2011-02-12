@@ -11,7 +11,7 @@ function drawSharp(ctx, position, options)
 		// Sharp default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 5.76, 21.18],
 			[ 5.44, 21.18,  5.21, 20.95,  5.21, 20.63],
@@ -79,7 +79,7 @@ function drawFlat(ctx, position, options)
 		// Flat default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 0.00,  -2.26],
 			[ 0.24,  -2.41,  0.54,  -2.50,  0.81,  -2.50],
@@ -114,7 +114,7 @@ function drawNatural(ctx, position, options)
 		// Natural accident default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 0.78,  -0.50],
 			[ 1.02,  -0.50,  1.29,  -0.41,  1.53,  -0.29],

@@ -5,7 +5,7 @@ function drawTrebleClef(ctx, position, options)
 		// Treble clef default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[13.55, 44.09],
 			[13.58, 44.67, 13.58, 45.22, 13.58, 45.81],
@@ -67,7 +67,7 @@ function drawBassClef(ctx, position, options)
 		// Bass clef default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[15.43, 22.20],
 			[15.43, 29.74,  7.89, 34.07,  0.63, 37.14],
@@ -109,7 +109,7 @@ function drawAltoClef(ctx, position, options)
 		// Alto clef default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 0.37, 44.26],
 			[ 0.15, 44.26,  0.00, 44.11,  0.00, 43.89],
@@ -176,7 +176,7 @@ function drawTabClef(ctx, position, options)
 		// Tablature Clef default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 2.43, 33.83],
 			[ 4.46, 33.83,  9.55, 27.93, 11.39, 22.33],
@@ -261,7 +261,7 @@ function drawPercussionsClef(ctx, position, options)
 		// Percussions Clef default settings
 		var settings = {
 			'scale': 1.0
-		}
+		};
 		var paths = [
 			[ 2.79, 36.99],
 			[ 2.65, 36.99,  2.50, 36.87,  2.50, 36.70],
