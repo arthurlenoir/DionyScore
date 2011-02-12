@@ -26,7 +26,7 @@
     </header>
     
     <div>
-      <canvas id="score" width="1200" height="800"></canvas>
+      <canvas id="score" width="1400" height="850"></canvas>
     </div>
   
   </div>
@@ -54,6 +54,14 @@
        			drawTwo(ctx, {'x': 35, 'y': 100});
        			drawFour(ctx, {'x': 35, 'y': 114.9});
        			drawNatural(ctx, {'x': 50, 'y': 100});
+       			drawHalfNoteHead(ctx, {'x': 80, 'y': 100 + (12 * 3.67)});
+       			drawRightStem(ctx, {'x': 80, 'y': 100 + (4 * 3.67)});
+       			drawHalfNoteHead(ctx, {'x': 100, 'y': 100 + (6 * 3.67)});
+       			drawLeftStem(ctx, {'x': 100, 'y': 100 + (6 * 3.67)});
+       			drawHalfNoteHead(ctx, {'x': 120, 'y': 100 + (5 * 3.67)});
+       			drawLeftStem(ctx, {'x': 120, 'y': 100 + (5 * 3.67)});
+       			drawHalfNoteHead(ctx, {'x': 140, 'y': 100 + (4 * 3.67)});
+       			drawLeftStem(ctx, {'x': 140, 'y': 100 + (4 * 3.67)});
        			
        			drawStaff(ctx, {'x': 0, 'y': 150}, {'width': 400});
        			drawTabClef(ctx, {'x': 10, 'y': 150});
@@ -74,6 +82,11 @@
        			drawSharp(ctx, {'x': 53 * scale, 'y': 250 + 0}, {'scale': scale});
        			drawCommonTime(ctx, {'x': 70 * scale, 'y': 250}, {'scale': scale});
        			drawWholeNote(ctx, {'x': 100 * scale, 'y': 250 + 22.25 * scale}, {'scale': scale});
+       			drawNoteHead(ctx, {'x': 120 * scale, 'y': 250 + (12 * 3.67) * scale}, {'scale': scale});
+       			//drawNoteHead(ctx, {'x': 120 * scale, 'y': 250 + (10 * 3.67) * scale}, {'scale': scale});
+       			//ctx.strokeStyle = 'red';
+       			drawRightStem(ctx, {'x': 120 * scale, 'y': 250 + (4 * 3.67) * scale}, {'scale': scale});
+       			//drawStem(ctx, {'x': 120 * scale, 'y': 250 + (10 * 3.67) * scale}, {'scale': scale});
      		});
   		}
   	);

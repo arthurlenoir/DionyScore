@@ -50,6 +50,30 @@ function drawPaths(paths, ctx, position, settings)
 	ctx.fill();
 }
 
+function strokePaths(paths, ctx, position, settings) 
+{
+	ctx.beginPath();
+	ctx.moveTo(position.x, position.y);
+	for (var i = 0 ; i < paths.length ; i++) 
+	{
+		if (paths[i].length == 2) 
+		{
+			ctx.moveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
+		}
+		else if (paths[i].length == 3) 
+		{
+			ctx.lineTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y);
+		}
+		else if (paths[i].length == 6)
+		{
+			ctx.bezierCurveTo(paths[i][0] * settings.scale + position.x, paths[i][1] * settings.scale + position.y, 
+							  paths[i][2] * settings.scale + position.x, paths[i][3] * settings.scale + position.y, 
+							  paths[i][4] * settings.scale + position.x, paths[i][5] * settings.scale + position.y);
+		} 
+	}
+	ctx.stroke();
+}
+
 function drawStaff(ctx, position, options)
 {
 	if (ctx != null && isPosition(position))
