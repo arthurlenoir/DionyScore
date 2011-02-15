@@ -53,27 +53,36 @@
        			drawAltoClef(ctx, {'x': 10, 'y': 100});
        			drawTwo(ctx, {'x': 35, 'y': 100});
        			drawFour(ctx, {'x': 35, 'y': 114.9});
-       			drawNatural(ctx, {'x': 50, 'y': 100});
+       			//drawNatural(ctx, {'x': 50, 'y': 100});
        			
-       			drawNoteHead(ctx, {'x': 80, 'y': 100 + (13 * 3.67)});
-       			drawNoteNeck(ctx, {'x': 80, 'y': 100 + (13 * 3.67)});
-       			drawRightStem(ctx, {'x': 80, 'y': 100 + (13 * 3.67)});
-       			drawSingleFlagDown(ctx, {'x': 80, 'y': 100 + (13 * 3.67)});
+       			drawHalfNoteHead(ctx, {'x': 80, 'y': 100 + (12 * 3.67)});
+       			drawRightStem(ctx, {'x': 80, 'y': 100 + (12 * 3.67)});
+       			drawHalfNoteHead(ctx, {'x': 120, 'y': 100 + (6 * 3.67)});
+       			drawLeftStem(ctx, {'x': 120, 'y': 100 + (6 * 3.67)});
        			
-       			drawHalfNoteHead(ctx, {'x': 100, 'y': 100 + (12 * 3.67)});
-       			drawRightStem(ctx, {'x': 100, 'y': 100 + (12 * 3.67)});
-       			drawHalfNoteHead(ctx, {'x': 140, 'y': 100 + (6 * 3.67)});
-       			drawLeftStem(ctx, {'x': 140, 'y': 100 + (6 * 3.67)});
+       			drawBarSeparator(ctx, {'x': 160, 'y': 100});
+       			
        			drawHalfNoteHead(ctx, {'x': 180, 'y': 100 + (5 * 3.67)});
        			drawLeftStem(ctx, {'x': 180, 'y': 100 + (5 * 3.67)});
        			drawHalfNoteHead(ctx, {'x': 220, 'y': 100 + (4 * 3.67)});
        			drawLeftStem(ctx, {'x': 220, 'y': 100 + (4 * 3.67)});
        			
-       			drawNoteHead(ctx, {'x': 260, 'y': 100 + (6 * 3.67)});
-       			drawLeftStem(ctx, {'x': 260, 'y': 100 + (6 * 3.67)});
-       			drawNoteHead(ctx, {'x': 280, 'y': 100 + (4 * 3.67)});
-       			drawLeftStem(ctx, {'x': 280, 'y': 100 + (4 * 3.67)});
-       			drawBottomFlag(ctx, [{'x': 260, 'y': 100 + (6 * 3.67)}, {'x': 280, 'y': 100 + (4 * 3.67)}]);
+       			drawBarSeparator(ctx, {'x': 260, 'y': 100});
+       			
+       			drawNoteHead(ctx, {'x': 280, 'y': 100 + (6 * 3.67)});
+       			drawLeftStem(ctx, {'x': 280, 'y': 100 + (6 * 3.67)});
+       			drawNoteHead(ctx, {'x': 300, 'y': 100 + (4 * 3.67)});
+       			drawLeftStem(ctx, {'x': 300, 'y': 100 + (4 * 3.67)});
+       			drawBottomFlag(ctx, [{'x': 280, 'y': 100 + (6 * 3.67)}, {'x': 300, 'y': 100 + (4 * 3.67)}]);
+       			
+       			drawNoteHead(ctx, {'x': 320, 'y': 100 + (5 * 3.67)});
+       			drawLeftStem(ctx, {'x': 320, 'y': 100 + (5 * 3.67)});
+       			drawDot(ctx, {'x': 320, 'y': 100 + (4 * 3.67)});
+       			
+       			drawNoteHead(ctx, {'x': 350, 'y': 100 + (13 * 3.67)});
+       			drawNoteNeck(ctx, {'x': 350, 'y': 100 + (13 * 3.67)});
+       			drawRightStem(ctx, {'x': 350, 'y': 100 + (13 * 3.67)});
+       			drawSingleFlagDown(ctx, {'x': 350, 'y': 100 + (13 * 3.67)});
        			
        			drawStaff(ctx, {'x': 0, 'y': 150}, {'width': 400});
        			drawTabClef(ctx, {'x': 10, 'y': 150});
@@ -93,10 +102,12 @@
        			drawSharp(ctx, {'x': 44 * scale, 'y': 250 + 14.55 * scale}, {'scale': scale});
        			drawSharp(ctx, {'x': 53 * scale, 'y': 250 + 0}, {'scale': scale});
        			drawCommonTime(ctx, {'x': 70 * scale, 'y': 250}, {'scale': scale});
+       			//ctx.fillStyle = 'red';
+       			drawBarSeparator(ctx, {'x': 90 * scale, 'y': 250}, {'scale': scale});
        			//drawWholeNote(ctx, {'x': 100 * scale, 'y': 250 + 22.25 * scale}, {'scale': scale});
        			drawNoteHead(ctx, {'x': 100 * scale, 'y': 250 + (12 * 3.67) * scale}, {'scale': scale});
        			drawNoteHead(ctx, {'x': 130 * scale, 'y': 250 + (10 * 3.67) * scale}, {'scale': scale});
-       			//ctx.fillStyle = 'red';
+       			drawDot(ctx, {'x': 130 * scale, 'y': 250 + (10 * 3.67) * scale}, {'scale': scale});
        			drawTopFlag(ctx, [{'x': (100) * scale, 'y': 250 + (12 * 3.67) * scale}, {'x': (130) * scale, 'y': 250 + (10 * 3.67) * scale}], {'scale': scale});
        			//ctx.strokeStyle = 'red';
        			drawRightStem(ctx, {'x': 100 * scale, 'y': 250 + (12 * 3.67) * scale}, {'scale': scale});

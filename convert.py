@@ -57,11 +57,11 @@ def getPathFromFile(file):
                     paths.append([float(command[0]), float(command[1]), float(command[2]), float(command[3]), float(command[4]), float(command[5])])
     return paths
 
-paths = getPathFromFile('D:/Projet Dionysos/Traces/flag.ai')
+paths = getPathFromFile('D:/Projet Dionysos/Traces/point.ai')
 
 minX, maxX, minY, maxY = getExtrema(paths)
-verticalPadding = 8.27
-horizontalPadding = 0.9
+verticalPadding = 2.5
+horizontalPadding = 12.5
 scale = 1.48 * 1.02 * 0.92 * 1.03 * 1.02 
 
 newvalue = None

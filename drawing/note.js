@@ -259,3 +259,26 @@ function drawTopFlag(ctx, positions, options)
         drawPaths(paths, ctx, {'x': 0, 'y': 0}, settings);
 	}
 }
+
+function drawDot(ctx, position, options)
+{
+	if (ctx != null && isPosition(position))
+	{
+		// Dot default settings
+		var settings = {
+			'scale': 1.0
+		};
+		var paths = [
+			[14.13,  2.50],
+			[15.03,  2.50, 15.76,  3.23, 15.76,  4.13],
+			[15.76,  5.03, 15.03,  5.76, 14.13,  5.76],
+			[13.23,  5.76, 12.50,  5.03, 12.50,  4.13],
+			[12.50,  3.23, 13.23,  2.50, 14.13,  2.50]
+		];
+        
+        // Overing default settings with options
+        jQuery.extend(settings, options);
+        // Start drawing
+        drawPaths(paths, ctx, position, settings);
+	}
+}

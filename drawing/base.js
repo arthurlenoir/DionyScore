@@ -108,3 +108,26 @@ function drawStaff(ctx, position, options)
 		ctx.stroke();
 	}
 }
+
+function drawBarSeparator(ctx, position, options)
+{
+	if (ctx != null && isPosition(position))
+	{
+		// Bar separator default settings
+		var settings = {
+			'scale': 1.0
+		};
+		var paths = [
+			[ 0.00, 44.67],
+			[ 1.38, 44.67, 'L'],
+			[ 1.38, 14.87, 'L'],
+			[ 0.00, 14.87, 'L'],
+			[ 0.00, 44.67, 'L']
+		];
+		
+		// Overing default settings with options
+		jQuery.extend(settings, options);
+		// Start drawing
+		drawPaths(paths, ctx, position, settings);
+	}
+}
