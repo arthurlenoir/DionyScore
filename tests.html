@@ -1,121 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
+    <head><meta charset="utf-8" />
 
-  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
-       Remove this if you use the .htaccess -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+        Remove this if you use the .htaccess --><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Drawing tests</title>
-  <meta name="description" content="Tests for drawing functions" />
-  <meta name="author" content="Arthur Lenoir" />
-  
-  <script type="text/javascript" src="jquery.js"></script>
-  <script type="text/javascript" src="drawing/base.js"></script>
-  <script type="text/javascript" src="drawing/clef.js"></script>
-  <script type="text/javascript" src="drawing/timeSignature.js"></script>
-  <script type="text/javascript" src="drawing/accidental.js"></script>
-  <script type="text/javascript" src="drawing/note.js"></script>
-</head>
+        <title>Drawing tests</title><meta name="description" content="Tests for drawing functions" /><meta name="author" content="Arthur Lenoir" />
+        <script type="text/javascript" src="jquery.js">
+        </script>
+        <script type="text/javascript" src="drawing/base.js">
+        </script>
+        <script type="text/javascript" src="drawing/clef.js">
+        </script>
+        <script type="text/javascript" src="drawing/timeSignature.js">
+        </script>
+        <script type="text/javascript" src="drawing/accidental.js">
+        </script>
+        <script type="text/javascript" src="drawing/note.js">
+        </script>
+        <script type="text/javascript" src="drawing/rest.js">
+        </script>
+    </head>
+    <body>
+        <div>
+            <header>
+                <h1>Drawing tests</h1>
+            </header>
+            <div>
+                <canvas id="score" width="1600" height="850">
+                </canvas>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready( function() {
+                $('#score').each( function() {
+                    var ctx = buildContext(this);
+                    drawStaff(ctx, {'x': 0, 'y': 0}, {'width': 400});
+                    drawTrebleClef(ctx, {'x': 10, 'y': 0});
+                    drawSharp(ctx, {'x': 35, 'y': 3.625});
+                    drawSharp(ctx, {'x': 44, 'y': 14.55});
+                    drawSharp(ctx, {'x': 53, 'y': 0});
+                    drawCommonTime(ctx, {'x': 70, 'y': 0});
+                    drawWholeNote(ctx, {'x': 100, 'y': 22.25});
 
-<body>
-  <div>
-    <header>
-      <h1>Drawing tests</h1>
-    </header>
-    
-    <div>
-      <canvas id="score" width="1600" height="850"></canvas>
-    </div>
-  
-  </div>
-  <script type="text/javascript">
-  	$(document).ready(function()
-    	{
-    		$('#score').each(function() {
-    			var ctx = buildContext(this);
-       			drawStaff(ctx, {'x': 0, 'y': 0}, {'width': 400});
-       			drawTrebleClef(ctx, {'x': 10, 'y': 0});
-       			drawSharp(ctx, {'x': 35, 'y': 3.625});
-       			drawSharp(ctx, {'x': 44, 'y': 14.55});
-       			drawSharp(ctx, {'x': 53, 'y': 0});
-       			drawCommonTime(ctx, {'x': 70, 'y': 0});
-       			drawWholeNote(ctx, {'x': 100, 'y': 22.25});
-       			
-       			drawStaff(ctx, {'x': 0, 'y': 50}, {'width': 400});
-       			drawBassClef(ctx, {'x': 10, 'y': 50});
-       			drawFlat(ctx, {'x': 35, 'y': 75.9});
-       			drawFlat(ctx, {'x': 44, 'y': 64.6});
-       			drawCutCommonTime(ctx, {'x': 61, 'y': 50});
-       			
-       			drawStaff(ctx, {'x': 0, 'y': 100}, {'width': 400});
-       			drawAltoClef(ctx, {'x': 10, 'y': 100});
-       			drawTwo(ctx, {'x': 35, 'y': 100});
-       			drawFour(ctx, {'x': 35, 'y': 114.9});
-       			//drawNatural(ctx, {'x': 50, 'y': 100});
-       			
-       			drawHalfNoteHead(ctx, {'x': 80, 'y': 100 + (12 * 3.67)});
-       			drawRightStem(ctx, {'x': 80, 'y': 100 + (12 * 3.67)});
-       			drawHalfNoteHead(ctx, {'x': 120, 'y': 100 + (6 * 3.67)});
-       			drawLeftStem(ctx, {'x': 120, 'y': 100 + (6 * 3.67)});
-       			
-       			drawBarSeparator(ctx, {'x': 160, 'y': 100});
-       			
-       			drawHalfNoteHead(ctx, {'x': 180, 'y': 100 + (5 * 3.67)});
-       			drawLeftStem(ctx, {'x': 180, 'y': 100 + (5 * 3.67)});
-       			drawHalfNoteHead(ctx, {'x': 220, 'y': 100 + (4 * 3.67)});
-       			drawLeftStem(ctx, {'x': 220, 'y': 100 + (4 * 3.67)});
-       			
-       			drawBarSeparator(ctx, {'x': 260, 'y': 100});
-       			
-       			drawNoteHead(ctx, {'x': 280, 'y': 100 + (6 * 3.67)});
-       			drawLeftStem(ctx, {'x': 280, 'y': 100 + (6 * 3.67)});
-       			drawNoteHead(ctx, {'x': 300, 'y': 100 + (4 * 3.67)});
-       			drawLeftStem(ctx, {'x': 300, 'y': 100 + (4 * 3.67)});
-       			drawBottomFlag(ctx, [{'x': 280, 'y': 100 + (6 * 3.67)}, {'x': 300, 'y': 100 + (4 * 3.67)}]);
-       			
-       			drawNoteHead(ctx, {'x': 320, 'y': 100 + (5 * 3.67)});
-       			drawLeftStem(ctx, {'x': 320, 'y': 100 + (5 * 3.67)});
-       			drawDot(ctx, {'x': 320, 'y': 100 + (4 * 3.67)});
-       			
-       			drawNoteHead(ctx, {'x': 350, 'y': 100 + (13 * 3.67)});
-       			drawNoteNeck(ctx, {'x': 350, 'y': 100 + (13 * 3.67)});
-       			drawRightStem(ctx, {'x': 350, 'y': 100 + (13 * 3.67)});
-       			drawSingleFlagDown(ctx, {'x': 350, 'y': 100 + (13 * 3.67)});
-       			
-       			drawStaff(ctx, {'x': 0, 'y': 150}, {'width': 400});
-       			drawTabClef(ctx, {'x': 10, 'y': 150});
-       			drawThree(ctx, {'x': 35, 'y': 150});
-       			drawFour(ctx, {'x': 35, 'y': 164.9});
-       			
-       			drawStaff(ctx, {'x': 0, 'y': 200}, {'width': 400});
-       			drawPercussionsClef(ctx, {'x': 10, 'y': 200});
-       			drawSix(ctx, {'x': 35, 'y': 200});
-       			drawEight(ctx, {'x': 35, 'y': 214.5});
-       			drawWholeNote(ctx, {'x': 60, 'y': 225});
-       			
-       			var scale = 10.0;
-       			drawStaff(ctx, {'x': 0, 'y': 250}, {'width': 400, 'scale': scale});
-       			drawTrebleClef(ctx, {'x': 10 * scale, 'y': 250}, {'scale': scale});
-       			drawSharp(ctx, {'x': 35 * scale, 'y': 250 + 3.625 * scale}, {'scale': scale});
-       			drawSharp(ctx, {'x': 44 * scale, 'y': 250 + 14.55 * scale}, {'scale': scale});
-       			drawSharp(ctx, {'x': 53 * scale, 'y': 250 + 0}, {'scale': scale});
-       			drawCommonTime(ctx, {'x': 70 * scale, 'y': 250}, {'scale': scale});
-       			//ctx.fillStyle = 'red';
-       			drawBarSeparator(ctx, {'x': 90 * scale, 'y': 250}, {'scale': scale});
-       			//drawWholeNote(ctx, {'x': 100 * scale, 'y': 250 + 22.25 * scale}, {'scale': scale});
-       			drawNoteHead(ctx, {'x': 100 * scale, 'y': 250 + (12 * 3.67) * scale}, {'scale': scale});
-       			drawNoteHead(ctx, {'x': 130 * scale, 'y': 250 + (10 * 3.67) * scale}, {'scale': scale});
-       			drawDot(ctx, {'x': 130 * scale, 'y': 250 + (10 * 3.67) * scale}, {'scale': scale});
-       			drawTopFlag(ctx, [{'x': (100) * scale, 'y': 250 + (12 * 3.67) * scale}, {'x': (130) * scale, 'y': 250 + (10 * 3.67) * scale}], {'scale': scale});
-       			//ctx.strokeStyle = 'red';
-       			drawRightStem(ctx, {'x': 100 * scale, 'y': 250 + (12 * 3.67) * scale}, {'scale': scale});
-       			drawRightStem(ctx, {'x': 130 * scale, 'y': 250 + (10 * 3.67) * scale}, {'scale': scale});
-       			//drawSingleFlagUp(ctx, {'x': (120) * scale, 'y': 250 + (4 * 3.67) * scale}, {'scale': scale});
-     		});
-  		}
-  	);
-  </script>
-</body>
+                    drawStaff(ctx, {'x': 0, 'y': 50}, {'width': 400});
+                    drawBassClef(ctx, {'x': 10, 'y': 50});
+                    drawFlat(ctx, {'x': 35, 'y': 75.9});
+                    drawFlat(ctx, {'x': 44, 'y': 64.6});
+                    drawCutCommonTime(ctx, {'x': 61, 'y': 50});
+
+                    drawStaff(ctx, {'x': 0, 'y': 100}, {'width': 400});
+                    drawAltoClef(ctx, {'x': 10, 'y': 100});
+                    drawTwo(ctx, {'x': 35, 'y': 100});
+                    drawFour(ctx, {'x': 35, 'y': 114.9});
+                    //drawNatural(ctx, {'x': 50, 'y': 100});
+
+                    drawHalfNoteHead(ctx, {'x': 80, 'y': 100 + (12 * 3.67)});
+                    drawRightStem(ctx, {'x': 80, 'y': 100 + (12 * 3.67)});
+                    drawHalfNoteHead(ctx, {'x': 120, 'y': 100 + (6 * 3.67)});
+                    drawLeftStem(ctx, {'x': 120, 'y': 100 + (6 * 3.67)});
+
+                    drawBarSeparator(ctx, {'x': 160, 'y': 100});
+
+                    drawHalfNoteHead(ctx, {'x': 180, 'y': 100 + (5 * 3.67)});
+                    drawLeftStem(ctx, {'x': 180, 'y': 100 + (5 * 3.67)});
+                    drawHalfNoteHead(ctx, {'x': 220, 'y': 100 + (4 * 3.67)});
+                    drawLeftStem(ctx, {'x': 220, 'y': 100 + (4 * 3.67)});
+
+                    drawBarSeparator(ctx, {'x': 260, 'y': 100});
+
+                    drawNoteHead(ctx, {'x': 280, 'y': 100 + (6 * 3.67)});
+                    drawLeftStem(ctx, {'x': 280, 'y': 100 + (6 * 3.67)});
+                    drawNoteHead(ctx, {'x': 300, 'y': 100 + (4 * 3.67)});
+                    drawLeftStem(ctx, {'x': 300, 'y': 100 + (4 * 3.67)});
+                    drawBottomFlag(ctx, [{'x': 280, 'y': 100 + (6 * 3.67)}, {'x': 300, 'y': 100 + (4 * 3.67)}]);
+
+                    drawNoteHead(ctx, {'x': 320, 'y': 100 + (5 * 3.67)});
+                    drawLeftStem(ctx, {'x': 320, 'y': 100 + (5 * 3.67)});
+                    drawDot(ctx, {'x': 320, 'y': 100 + (4 * 3.67)});
+
+                    drawNoteHead(ctx, {'x': 350, 'y': 100 + (13 * 3.67)});
+                    drawNoteNeck(ctx, {'x': 350, 'y': 100 + (13 * 3.67)});
+                    drawRightStem(ctx, {'x': 350, 'y': 100 + (13 * 3.67)});
+                    drawSingleFlagDown(ctx, {'x': 350, 'y': 100 + (13 * 3.67)});
+
+                    drawStaff(ctx, {'x': 0, 'y': 150}, {'width': 400});
+                    drawTabClef(ctx, {'x': 10, 'y': 150});
+                    drawThree(ctx, {'x': 35, 'y': 150});
+                    drawFour(ctx, {'x': 35, 'y': 164.9});
+
+                    drawStaff(ctx, {'x': 0, 'y': 200}, {'width': 400});
+                    drawPercussionsClef(ctx, {'x': 10, 'y': 200});
+                    drawSix(ctx, {'x': 35, 'y': 200});
+                    drawEight(ctx, {'x': 35, 'y': 214.5});
+                    drawWholeNote(ctx, {'x': 60, 'y': 225});
+
+                    var scale = 10.0;
+                    drawStaff(ctx, {'x': 0, 'y': 250}, {'width': 400, 'scale': scale});
+                    drawTrebleClef(ctx, {'x': 10 * scale, 'y': 250}, {'scale': scale});
+                    drawSharp(ctx, {'x': 35 * scale, 'y': 250 + 3.625 * scale}, {'scale': scale});
+                    drawSharp(ctx, {'x': 44 * scale, 'y': 250 + 14.55 * scale}, {'scale': scale});
+                    drawSharp(ctx, {'x': 53 * scale, 'y': 250 + 0}, {'scale': scale});
+                    drawCommonTime(ctx, {'x': 70 * scale, 'y': 250}, {'scale': scale});
+                    drawHundredTwentyEighthRest(ctx, {'x': 90 * scale, 'y': 250}, {'scale': scale});
+                });
+            }
+            );
+        </script>
+    </body>
 </html>
