@@ -28,7 +28,7 @@ function drawWholeNote(ctx, position, options)
 
 function drawHalfNoteHead(ctx, position, options)
 {
-	if (ctx != null & isPosition(position))
+	if (ctx != null && isPosition(position))
 	{
 		// Half note base default settings
 		var settings = {
@@ -60,7 +60,7 @@ function drawHalfNoteHead(ctx, position, options)
 
 function drawNoteHead(ctx, position, options)
 {
-	if (ctx != null & isPosition(position))
+	if (ctx != null && isPosition(position))
 	{
 		// Note base default settings
 		var settings = {
@@ -83,7 +83,7 @@ function drawNoteHead(ctx, position, options)
 
 function drawLeftStem(ctx, position, options)
 {
-	if (ctx != null & isPosition(position))
+	if (ctx != null && isPosition(position))
 	{
 		// Right stem default settings
 		var settings = {
@@ -108,7 +108,7 @@ function drawLeftStem(ctx, position, options)
 
 function drawRightStem(ctx, position, options)
 {
-	if (ctx != null & isPosition(position))
+	if (ctx != null && isPosition(position))
 	{
 		// Left stem default settings
 		var settings = {
@@ -133,7 +133,7 @@ function drawRightStem(ctx, position, options)
 
 function drawNoteNeck(ctx, position, options)
 {
-	if (ctx != null & isPosition(position))
+	if (ctx != null && isPosition(position))
 	{
 		// Note neck default settings
 		var settings = {
@@ -156,7 +156,7 @@ function drawNoteNeck(ctx, position, options)
 
 function drawSingleFlagDown(ctx, position, options)
 {
-	if (ctx != null & isPosition(position))
+	if (ctx != null && isPosition(position))
 	{
 		// Note neck default settings
 		var settings = {
@@ -184,7 +184,7 @@ function drawSingleFlagDown(ctx, position, options)
 
 function drawSingleFlagUp(ctx, position, options)
 {
-	if (ctx != null & isPosition(position))
+	if (ctx != null && isPosition(position))
 	{
 		// Note neck default settings
 		var settings = {
@@ -206,5 +206,56 @@ function drawSingleFlagUp(ctx, position, options)
         jQuery.extend(settings, options);
         // Start drawing
         drawPaths(paths, ctx, position, settings);
+	}
+}
+
+function drawBottomFlag(ctx, positions, options)
+{
+	if (ctx != null && typeof positions == 'object' && positions.length == 2 && isPosition(positions[0]) && isPosition(positions[1]))
+	{
+		// Bottom Flag default settings
+		var settings = {
+			'scale': 1.0
+		};
+        
+        // Overing default settings with options
+        jQuery.extend(settings, options);
+		
+		var paths = [
+			[ positions[0].x, positions[0].y + 28 * settings.scale],
+			[ positions[0].x, positions[0].y + 30.91 * settings.scale, 'L'],
+			[ positions[1].x + 1.37 * settings.scale, positions[1].y + 30.91 * settings.scale, 'L'],
+			[ positions[1].x + 1.37 * settings.scale, positions[1].y + 28 * settings.scale, 'L']
+		];
+		
+		settings.scale = 1.0;
+        // Start drawing
+        drawPaths(paths, ctx, {'x': 0, 'y': 0}, settings);
+	}
+}
+
+function drawTopFlag(ctx, positions, options)
+{
+	if (ctx != null && typeof positions == 'object' && positions.length == 2 && isPosition(positions[0]) && isPosition(positions[1]))
+	{
+		// Top Flag default settings
+		var settings = {
+			'scale': 1.0
+		};
+        
+        // Overing default settings with options
+        jQuery.extend(settings, options);
+		var paddingLeft = 8.24;
+		var paddingTop = -22.75;
+		var paths = [
+			[ positions[0].x + paddingLeft * settings.scale, positions[0].y + paddingTop * settings.scale],
+			[ positions[0].x + paddingLeft * settings.scale, positions[0].y + (paddingTop + 2.91) * settings.scale, 'L'],
+			[ positions[1].x + paddingLeft * settings.scale + 1.37 * settings.scale, positions[1].y + (paddingTop + 2.91) * settings.scale, 'L'],
+			[ positions[1].x + paddingLeft * settings.scale + 1.37 * settings.scale, positions[1].y + paddingTop * settings.scale, 'L']
+		];
+		
+		settings.scale = 1.0;
+        // Start drawing
+        drawPaths(paths, ctx, {'x': 0, 'y': 0}, settings);
 	}
 }
