@@ -97,12 +97,24 @@
 
                     var scale = 10.0;
                     drawStaff(ctx, {'x': 0, 'y': 250}, {'width': 400, 'scale': scale});
-                    drawTrebleClef(ctx, {'x': 10 * scale, 'y': 250}, {'scale': scale});
+                    drawTabClef(ctx, {'x': 10 * scale, 'y': 250}, {'scale': scale});
+                    drawCommonTime(ctx, {'x': 40 * scale, 'y': 250}, {'scale': scale});
+                    drawTabZero(ctx, {'x': 70 * scale, 'y': 250}, {'scale': scale});
+                    drawTabOne(ctx, {'x': 70 * scale, 'y': 250 + 7.34 * scale}, {'scale': scale});
+                    drawTabOne(ctx, {'x': 70 * scale, 'y': 250 + 7.34 * 2 * scale}, {'scale': scale});
+                    drawTabThree(ctx, {'x': 90 * scale, 'y': 250}, {'scale': scale});
+                    drawTabFour(ctx, {'x': 90 * scale, 'y': 250 + 7.34 * scale}, {'scale': scale});
+                    drawTabFive(ctx, {'x': 90 * scale, 'y': 250 + 7.34 * 2 * scale}, {'scale': scale});
+                    drawTabSix(ctx, {'x': 90 * scale, 'y': 250 + 7.34 * 3 * scale}, {'scale': scale});
+                    drawTabSeven(ctx, {'x': 90 * scale, 'y': 250 + 7.34 * 4 * scale}, {'scale': scale});
+                    drawTabEight(ctx, {'x': 110 * scale, 'y': 250}, {'scale': scale});
+                    drawTabNine(ctx, {'x': 110 * scale, 'y': 250 + 7.34 * scale}, {'scale': scale});
+                    /*drawTrebleClef(ctx, {'x': 10 * scale, 'y': 250}, {'scale': scale});
                     drawSharp(ctx, {'x': 35 * scale, 'y': 250 + 3.625 * scale}, {'scale': scale});
                     drawSharp(ctx, {'x': 44 * scale, 'y': 250 + 14.55 * scale}, {'scale': scale});
                     drawSharp(ctx, {'x': 53 * scale, 'y': 250 + 0}, {'scale': scale});
                     drawCommonTime(ctx, {'x': 70 * scale, 'y': 250}, {'scale': scale});
-                    drawHundredTwentyEighthRest(ctx, {'x': 90 * scale, 'y': 250}, {'scale': scale});
+                    drawHundredTwentyEighthRest(ctx, {'x': 90 * scale, 'y': 250}, {'scale': scale});*/
                 });
             }
             );
