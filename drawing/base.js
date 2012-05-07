@@ -52,6 +52,9 @@ function drawPaths(paths, ctx, position, settings)
 
 function strokePaths(paths, ctx, position, settings) 
 {
+
+	ctx.save();
+	ctx.lineWidth *= settings.scale;
 	ctx.beginPath();
 	ctx.moveTo(position.x, position.y);
 	for (var i = 0 ; i < paths.length ; i++) 
@@ -72,6 +75,7 @@ function strokePaths(paths, ctx, position, settings)
 		} 
 	}
 	ctx.stroke();
+	ctx.restore();
 }
 
 function drawStaff(ctx, position, options)
@@ -90,9 +94,10 @@ function drawStaff(ctx, position, options)
 		jQuery.extend(settings, options);
 		
 		// Scalling settings
+		ctx.save();
 		ctx.lineWidth *= settings.scale;
 		ctx.lineCap = settings.lineCap;
-		settings.width *= settings.scale;
+		//settings.width *= settings.scale;
 		settings.height *= settings.scale;
 		settings.paddingTop *= settings.scale;
 		
@@ -106,6 +111,7 @@ function drawStaff(ctx, position, options)
 			ctx.lineTo(position.x + settings.width, 0.5 + Math.round(settings.paddingTop + position.y + i * space));
 		}
 		ctx.stroke();
+		ctx.restore();
 	}
 }
 
